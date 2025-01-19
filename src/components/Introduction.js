@@ -4,14 +4,35 @@ import "../App.css";
 
 export default function Introduction() {
   const [wait, setWait] = useState(true);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     setTimeout(() => {
       setWait(false);
     }, 1000);
   }, [wait]);
+  useEffect(() => {
+    const handleOrientation = (event) => {
+      const gamma = event.gamma;
+      const beta = event.beta;
+      setPosition({
+        x: gamma * 2,
+        y: beta * 0.5,
+      });
+    };
+    window.addEventListener("deviceorientation", handleOrientation);
+    return () => {
+      window.removeEventListener("deviceorientation", handleOrientation);
+    };
+  }, []);
   return (
-    <div className="grid md:grid-cols-3 sm:grid-cols-2 mt-16">
+    <div
+      className="grid md:grid-cols-3 sm:grid-cols-2 mt-16"
+      style={{
+        transform: `translate(${position.x}px, ${position.y}px)`, // Shift based on tilt
+        transition: "transform 0.5s ease", // Smooth transition
+      }}
+    >
       <div className="col-span-2">
         <div className="fixed flex text-white/60 text-xl sm:text-2xl mb-3 smm:mb-0 lg:text-3xl">
           <h1>Hey, there</h1>
@@ -35,7 +56,10 @@ export default function Introduction() {
           growth.
         </p>
       </div>
-      <div className="md:mt-0 sm:mt-16 animate-grid" style={{ display: wait ? "none" : "" }}>
+      <div
+        className="md:mt-0 sm:mt-16 animate-grid"
+        style={{ display: wait ? "none" : "" }}
+      >
         <img
           className="rounded-[3rem] mt-4 -rotate-12 ease-in duration-300 hover:rotate-0"
           src={Photo}

@@ -12,7 +12,7 @@ export default function Work() {
       description:
         "Deffinder is a website dedicated to providing comprehensive explanations of words in English. Whether you're looking to expand your vocabulary, understand nuanced meanings, or simply clarify definitions, Deffinder offers a user-friendly interface that facilitates easy exploration of words and their explanations.",
       projectLink: "https://deffinder-fe.vercel.app/",
-      githubLink: "this is github link",
+      githubLink: "https://github.com/kartikey779/deffinder_fe",
       skills: ["HTML", "Css", "ReactJs", "NodeJs", "MongoDb", "Scrapy/Python"],
     },
     {
@@ -22,7 +22,7 @@ export default function Work() {
       description:
         "Elecdhan is a website designed to efficiently store and manage data related to elections. It provides a centralized platform for organizing and accessing election-related information, ensuring transparency and ease of use for stakeholders.",
       projectLink: "https://elecdhan-fa.vercel.app/",
-      githubLink: "this is github link2",
+      githubLink: "https://github.com/kartikey779/elecdhan_fa",
       skills: ["React", "Bootstrap", "NodeJs"],
     },
     {
@@ -32,7 +32,7 @@ export default function Work() {
       description:
         "Text Editor is website mabe for editing text according to our need.I design this site using librery named as tiptap. This is a assignment given by a company.It did not have all functionalities",
       projectLink: "https://text-editor-lemon-iota.vercel.app/",
-      githubLink: "this is github link2",
+      githubLink: "https://github.com/kartikey7y/Text_editor",
       skills: ["React", "Bootstrap", "NodeJs", "Tiptap"],
     },
   ];
