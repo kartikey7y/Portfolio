@@ -1,7 +1,8 @@
 import { Outlet, useNavigate } from "react-router-dom";
-import { Logo, MenuSvg, CancelSvg } from "../Assets/Logo";
+import { MenuSvg, CancelSvg } from "../Assets/Logo";
 import { useState, useEffect, useRef } from "react";
 import "../App.css";
+import Dlogo from "../Assets/Heiler.png";
 
 export default function Home() {
   const [draggedItem, setDraggedItem] = useState(null);
@@ -81,7 +82,8 @@ export default function Home() {
         <div className="flex justify-between items-center">
           <div className="cursor-pointer">
             <span className={wait ? "animate-bounce" : ""}>
-              <Logo />
+              {/* <Logo /> */}
+              <img className="h-12 w-12 object-contain" src={Dlogo} alt="logo" style={{mixBlendMode:"multiply"}}/>
             </span>
           </div>
           <ul className={navLink} id="links" ref={smNavbarRef}>

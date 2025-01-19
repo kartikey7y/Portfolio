@@ -16,8 +16,8 @@ export default function Introduction() {
       const gamma = event.gamma;
       const beta = event.beta;
       setPosition({
-        x: gamma * 2,
-        y: beta * 0.5,
+        x: gamma * 0,
+        y: beta * -0.5,
       });
     };
     window.addEventListener("deviceorientation", handleOrientation);
@@ -30,7 +30,7 @@ export default function Introduction() {
       className="grid md:grid-cols-3 sm:grid-cols-2 mt-16"
       style={{
         transform: `translate(${position.x}px, ${position.y}px)`, // Shift based on tilt
-        transition: "transform 0.5s ease", // Smooth transition
+        transition: "transform 1s ease", // Smooth transition
       }}
     >
       <div className="col-span-2">
