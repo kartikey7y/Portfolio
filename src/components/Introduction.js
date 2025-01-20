@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Photo from "../Assets/photo.jpeg";
+import Photo from "../Assets/photo.png";
 import "../App.css";
 
 export default function Introduction() {
@@ -61,7 +61,7 @@ export default function Introduction() {
         style={{ display: wait ? "none" : "" }}
       >
         <img
-          className="rounded-[3rem] mt-4 -rotate-12 ease-in duration-300 hover:rotate-0"
+          className="rounded-[3rem] -rotate-12 ease-in duration-300 hover:rotate-0"
           src={Photo}
           alt="profile"
         />

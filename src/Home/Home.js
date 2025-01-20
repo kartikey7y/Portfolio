@@ -16,6 +16,7 @@ export default function Home() {
   const [selectedButton, setSelectedButton] = useState("open");
   const smNavbarRef = useRef(null);
   const navigate = useNavigate();
+  const [help, setHelp] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
@@ -72,6 +73,15 @@ export default function Home() {
     setSelectedButton("open");
   };
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHelp((prevHelp) => !prevHelp);
+      console.log("Interval toggled help state");
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="mt-8 max-w-[90%] xl:max-w-[1223px] w-full mx-auto">
       {/* Navigation Bar */}
@@ -83,33 +93,38 @@ export default function Home() {
           <div className="cursor-pointer">
             <span className={wait ? "animate-bounce" : ""}>
               {/* <Logo /> */}
-              <img className="h-12 w-12 object-contain" src={Dlogo} alt="logo" style={{mixBlendMode:"multiply"}}/>
+              <img
+                className="h-12 w-12 object-contain"
+                src={Dlogo}
+                alt="logo"
+                style={{ mixBlendMode: "multiply" }}
+              />
             </span>
           </div>
           <ul className={navLink} id="links" ref={smNavbarRef}>
             <li
-              className="hover:text-white cursor-pointer hover:border hover:rounded hover:px-2"
+              className="hover:text-white cursor-pointer hover:rounded hover:px-2 hover:bg-yellow-600"
               draggable
               onDragStart={() => handleDragStart("/")}
             >
               Home
             </li>
             <li
-              className="hover:text-white cursor-pointer hover:border hover:rounded hover:px-2"
+              className="hover:text-white cursor-pointer  hover:rounded hover:px-2 hover:bg-yellow-600"
               draggable
               onDragStart={() => handleDragStart("/work")}
             >
               Work
             </li>
             <li
-              className="hover:text-white cursor-pointer hover:border hover:rounded hover:px-2"
+              className="hover:text-white cursor-pointer hover:rounded hover:px-2 hover:bg-yellow-600"
               draggable
               onDragStart={() => handleDragStart("/about")}
             >
               About
             </li>
             <li
-              className="hover:text-white cursor-pointer hover:border hover:rounded hover:px-2"
+              className="hover:text-white cursor-pointer hover:rounded hover:px-2 hover:bg-yellow-600"
               draggable
               onDragStart={() => handleDragStart("/contact")}
             >
@@ -154,6 +169,16 @@ export default function Home() {
           style={{ backdropFilter: "blur(15rem)" }}
           onDrop={handleDrop}
         >
+          {help ? (
+            <span>
+              <p className="absolute bottom-24 right-0 text-[1rem] text-white bg-yellow-600 rounded p-2 animate-bounce">
+                Drag and Drop here 👇🏼
+              </p>
+              <p className="absolute -top-[40rem] right-0 md:-top-[28rem] text-[1rem] text-white bg-yellow-600 rounded p-2 animate-bounce">Drag items☝🏼</p>
+            </span>
+          ) : (
+            ""
+          )}
           Only Smart People can navigate!
         </div>
       </div>
