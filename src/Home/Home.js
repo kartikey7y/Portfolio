@@ -182,7 +182,7 @@ export default function Home() {
           )}
           {helpButton ? (
             <span
-              className="absolute bg-yellow-600 text-white right-2 top-0  py-1 rounded text-[12px] leading-none whitespace-nowrap text-center overflow-hidden"
+              className="absolute bg-yellow-600 text-white right-2 top-0  py-1 rounded text-[12px] leading-none whitespace-nowrap text-center overflow-hidden hover:cursor-pointer"
               style={{ minWidth: "50px", height: "20px" }}
               onClick={handleHelp}
             >
