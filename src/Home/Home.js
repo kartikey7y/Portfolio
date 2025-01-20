@@ -76,7 +76,6 @@ export default function Home() {
   useEffect(() => {
     const interval = setInterval(() => {
       setHelp((prevHelp) => !prevHelp);
-      console.log("Interval toggled help state");
     }, 10000);
 
     return () => clearInterval(interval);
@@ -171,10 +170,12 @@ export default function Home() {
         >
           {help ? (
             <span>
-              <p className="absolute bottom-24 right-0 text-[1rem] text-white bg-yellow-600 rounded p-2 animate-bounce">
+              <p className="absolute bottom-24 right-0 text-[1rem] text-white bg-yellow-600 rounded px-2 animate-bounce">
                 Drag and Drop here 👇🏼
               </p>
-              <p className="absolute -top-[40rem] right-0 md:-top-[28rem] text-[1rem] text-white bg-yellow-600 rounded p-2 animate-bounce">Drag items☝🏼</p>
+              <p className="absolute -top-[40rem] right-0 md:-top-[28rem] text-[1rem] text-white bg-yellow-600 rounded px-2 animate-bounce">
+                Drag items☝🏼
+              </p>
             </span>
           ) : (
             ""
