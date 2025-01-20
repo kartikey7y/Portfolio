@@ -1,8 +1,9 @@
 import { Outlet, useNavigate } from "react-router-dom";
-import { MenuSvg, CancelSvg } from "../Assets/Logo";
+import { MenuSvg, CancelSvg } from "../components/svgs";
 import { useState, useEffect, useRef } from "react";
 import "../App.css";
-import Dlogo from "../Assets/Heiler.png";
+import Dlogo from "../Assets/logo.png";
+import { MainData } from "../Assets/Data";
 
 export default function Home() {
   const [draggedItem, setDraggedItem] = useState(null);
@@ -16,7 +17,8 @@ export default function Home() {
   const [selectedButton, setSelectedButton] = useState("open");
   const smNavbarRef = useRef(null);
   const navigate = useNavigate();
-  const [help, setHelp] = useState(true);
+  const [helpButton, setHelpButton] = useState(true);
+  const [helper, setHelper] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -73,13 +75,14 @@ export default function Home() {
     setSelectedButton("open");
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setHelp((prevHelp) => !prevHelp);
-    }, 10000);
-
-    return () => clearInterval(interval);
-  }, []);
+  const handleHelp = () => {
+    setHelper(true);
+    setHelpButton(false);
+    setTimeout(() => {
+      setHelper(false);
+      setHelpButton(true);
+    }, 5000);
+  };
 
   return (
     <div className="mt-8 max-w-[90%] xl:max-w-[1223px] w-full mx-auto">
@@ -130,15 +133,12 @@ export default function Home() {
               Contact
             </li>
             <li className="xl:ml-96 hover:text-white cursor-pointer">
-              <a
-                href="https://www.linkedin.com/in/kartikey-yadav-4a7a612b6/?trk=public-profile-join-page"
-                target="blank"
-              >
+              <a href={MainData.linkdin} target="blank">
                 LinkedIn
               </a>
             </li>
             <li className="hover:text-white cursor-pointer">
-              <a href="https://github.com/kartikey7y" target="blank">
+              <a href={MainData.github} target="blank">
                 GitHub
               </a>
             </li>
@@ -168,7 +168,7 @@ export default function Home() {
           style={{ backdropFilter: "blur(15rem)" }}
           onDrop={handleDrop}
         >
-          {help ? (
+          {helper ? (
             <span>
               <p className="absolute bottom-24 right-0 text-[1rem] text-white bg-yellow-600 rounded px-2 animate-bounce">
                 Drag and Drop here 👇🏼
@@ -180,6 +180,15 @@ export default function Home() {
           ) : (
             ""
           )}
+          {helpButton ? (
+            <span
+              className="absolute bg-yellow-600 text-white right-2 top-0  py-1 rounded text-[12px] leading-none whitespace-nowrap text-center overflow-hidden"
+              style={{ minWidth: "50px", height: "20px" }}
+              onClick={handleHelp}
+            >
+              help
+            </span>
+          ) : null}
           Only Smart People can navigate!
         </div>
       </div>

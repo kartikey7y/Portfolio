@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import Photo from "../Assets/photo.png";
 import "../App.css";
+import { MainData } from "../Assets/Data";
 
 export default function Introduction() {
   const [wait, setWait] = useState(true);
@@ -29,8 +29,8 @@ export default function Introduction() {
     <div
       className="grid md:grid-cols-3 sm:grid-cols-2 mt-16"
       style={{
-        transform: `translate(${position.x}px, ${position.y}px)`, // Shift based on tilt
-        transition: "transform 1s ease", // Smooth transition
+        transform: `translate(${position.x}px, ${position.y}px)`,
+        transition: "transform 1s ease", 
       }}
     >
       <div className="col-span-2">
@@ -44,16 +44,15 @@ export default function Introduction() {
         >
           <h1 className="text-white/60 inline">I'm </h1>
           <span className="font-bold bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
-            Kartikey Yadav
+            {MainData.name}
           </span>
-          <h1 className="text-white ">a Software Engineer</h1>
+          <h1 className="text-white ">{MainData.degination}</h1>
         </div>
         <p
-          className="text-white/40  text-xl smm:text-2xl lg:text-3xl xl:text-4xl mt-3 smm:mt-6  animate-grid"
+          className="text-white/40 w-[30ch]  text-xl smm:text-2xl lg:text-3xl xl:text-4xl mt-3 smm:mt-6  animate-grid"
           style={{ display: wait ? "none" : "" }}
         >
-          currently focused on building user <br /> experiences that drive
-          growth.
+          {MainData.subheading}
         </p>
       </div>
       <div
@@ -62,7 +61,7 @@ export default function Introduction() {
       >
         <img
           className="rounded-[3rem] -rotate-12 ease-in duration-300 hover:rotate-0"
-          src={Photo}
+          src={MainData.photo}
           alt="profile"
         />
       </div>

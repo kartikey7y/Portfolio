@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ContactData } from "../Assets/Data";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -24,7 +25,7 @@ export default function Contact() {
     }
 
     // Construct mailto link
-    const mailtoLink = `mailto:abhi7.kartik@gmail.com?subject=Contact from ${name}&body=${encodeURIComponent(
+    const mailtoLink = `mailto:${ContactData.email}?subject=Contact from ${name}&body=${encodeURIComponent(
       `Name: ${name}\nEmail: ${email}\n\n${message}`
     )}`;
     window.open(mailtoLink, "_self");
@@ -61,7 +62,7 @@ export default function Contact() {
           />
           <button
             type="submit"
-            className="my-4 bg-violet-100 rounded-md p-2 hover:bg-violet-950 text-white"
+            className="my-4 bg-violet-400 rounded-md p-2 hover:bg-violet-950 text-white"
           >
             Send
           </button>
