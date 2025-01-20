@@ -134,6 +134,6 @@ Welcome to my portfolio website project! This README file will guide you through
 
 Feel free to fork this repository, make improvements, and submit pull requests. Contributions are welcome!
 
-## License
+## Rights
 
-This project is licensed under the MIT License - see the LICENSE.md file for details.
+This project all rights reserved by kartikey yadav
