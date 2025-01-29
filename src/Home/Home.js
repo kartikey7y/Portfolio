@@ -1,4 +1,4 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { MenuSvg, CancelSvg } from "../components/svgs";
 import { useState, useEffect, useRef } from "react";
 import "../App.css";
@@ -109,28 +109,28 @@ export default function Home() {
               draggable
               onDragStart={() => handleDragStart("/")}
             >
-              Home
+              <Link to="/">Home</Link>
             </li>
             <li
               className="hover:text-white cursor-pointer  hover:rounded hover:px-2 hover:bg-yellow-600"
               draggable
               onDragStart={() => handleDragStart("/work")}
             >
-              Work
+              <Link to="work">Work</Link>
             </li>
             <li
               className="hover:text-white cursor-pointer hover:rounded hover:px-2 hover:bg-yellow-600"
               draggable
               onDragStart={() => handleDragStart("/about")}
             >
-              About
+              <Link to="about">About</Link>
             </li>
             <li
               className="hover:text-white cursor-pointer hover:rounded hover:px-2 hover:bg-yellow-600"
               draggable
               onDragStart={() => handleDragStart("/contact")}
             >
-              Contact
+              <Link to="contact">Contact</Link>
             </li>
             <li className="xl:ml-96 hover:text-white cursor-pointer">
               <a href={MainData.linkdin} target="blank">
@@ -189,7 +189,7 @@ export default function Home() {
               help
             </span>
           ) : null}
-          Only Smart People can navigate!
+          Darg and Drop!
         </div>
       </div>
     </div>
